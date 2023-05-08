@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <link rel="stylesheet" type="text/css" href="styles.css">
+
+<html>
+  <head>
+    <title>Live RAM and CPU usage</title>
+  </head>
+  <body>
+    <div class="progress-bar">
+      <div id="cpu-usage" class="progress-bar-fill"></div>
+      <div id="cpu-usage-text" class="progress-bar-text"></div>
+    </div>
+
+    <div class="progress-bar">
+      <div id="ram-usage" class="progress-bar-fill"></div>
+      <div id="ram-usage-text" class="progress-bar-text"></div>
+    </div>
+	<div class="meminfo">
+			<h2>memorysize</h2>
+			<p id="memsize"></p>
+	</div>
+	<div class="cpuinfo">
+			<h2>cpu info</h2>
+			<p id="cpuuse"></p>
+	</div>
+
+    <script>
+      async function fetchUsage() {
+        const response = await fetch('/usage');
+        const data = await response.json();
+
+			const response2= await fetch('/system')
+		  	const data2= await response2.json();
+		const cpuinfo=data2.cpuInfo;
+		const memsize=data2.maxAvailableRam;
+			document.getElementById('cpuuse').textContent = cpuinfo ;
+			document.getElementById('memsize').textContent = memsize ;
+
+        const cpuUsage = Math.round(data.cpu);
+        const ramUsage = Math.round(data.ram);
+
+        document.getElementById('cpu-usage').style.width = cpuUsage + '%';
+        document.getElementById('ram-usage').style.width = ramUsage + '%';
+        document.getElementById('cpu-usage-text').textContent = cpuUsage + '% CPU Usage';
+        document.getElementById('ram-usage-text').textContent = ramUsage + '% RAM Usage';
+      }
+
+      fetchUsage();
+      setInterval(fetchUsage, 1000);
+
+
+    </script>
+  </body>
+</html>
+

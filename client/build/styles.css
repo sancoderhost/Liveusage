@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: 'Arial', sans-serif;
+}
+
+.progress-bar {
+  height: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.progress-bar-fill {
+  height: 20px;
+  border-radius: 10px;
+  transition: width 0.2s ease-in-out;
+  width: 0%;
+}
+
+.progress-bar-text {
+  margin-top: -20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+}
+
+.meminfo,
+.cpuinfo {
+  margin-top: 30px;
+  color: #fff;
+}
+
+.meminfo h2,
+.cpuinfo h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.meminfo p,
+.cpuinfo p {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Custom Iron Man HUD styles */
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('ironman-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.progress-bar {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.progress-bar-fill {
+  background-color: #00ff00;
+}
+
+.progress-bar-text {
+  color:#070; 
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+}
+
+.meminfo,
+.cpuinfo {
+  border: 2px solid rgba(0, 255, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+		.progress-bar
+				{
+				height: 4vw;
+		}
+		.progress-bar-fill
+				{
+				height:4vw;
+		}
+  .progress-bar,
+  .meminfo,
+  .cpuinfo {
+    margin-top: 10px;
+  }
+
+  .progress-bar-text,
+  .meminfo p,
+  .cpuinfo p {
+    font-size: 12px;
+  }
+}
+ 
+
